@@ -1,4 +1,4 @@
-name: "Upload on S3"
+name: "Deploy with main"
 on:
   # Manual trigger
   workflow_dispatch:
