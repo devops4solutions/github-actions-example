@@ -1,6 +1,6 @@
 # github-actions-example
 
-# Upload on S3 bucket ( aws-s3-upload.yaml)
+## Upload on S3 bucket ( aws-s3-upload.yaml)
 In this workflow, we will cover below points
   1. Run when push on s3 folder
   2. Run on multiple runners with different environment. You might have different runners for different environment or in different AWS accounts
