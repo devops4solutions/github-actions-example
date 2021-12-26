@@ -1,5 +1,11 @@
 # github-actions-example
 
+# Github Actions Workflow
+- What is Github Actions
+- How to configure Github workflow in your repo ?
+- Run workflow on existing github hosted runners
+- 
+
 ## Upload on S3 bucket ( aws-s3-upload.yaml)
 
 In this workflow, we will cover below points
@@ -12,6 +18,12 @@ In this workflow, we will cover below points
   7. Set working directory to any of your subfolder
 
 
+## Deploy only when oush to main branch (deploy.yaml)
+
+In this workflow, we will see how to configure a particular step to run only when there is a push to main branch
+
+
+
 ## References
 1. https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows
-2. 
+2. https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
