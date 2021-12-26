@@ -14,7 +14,7 @@ defaults:
     shell: bash
     working-directory: s3
 jobs:
-  terraform:
+  s3-upload:
     name:   ${{matrix.runner}} - ${{ matrix.environment }}
     runs-on: [ '${{ matrix.runner }}']
     strategy:
