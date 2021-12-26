@@ -3,7 +3,6 @@
 - What is Github Actions
 - How to configure Github workflow in your repo ?
 - Run workflow on existing github hosted runners
-- 
 
 ## Upload on S3 bucket ( aws-s3-upload.yaml)
 
