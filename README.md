@@ -16,7 +16,7 @@ In this workflow, we will cover below points
   7. Set working directory to any of your subfolder
 
 
-## Deploy only when oush to main branch (deploy.yaml)
+## Deploy only when push to main branch (deploy.yaml)
 
 In this workflow, we will see how to configure a particular step to run only when there is a push to main branch
 
