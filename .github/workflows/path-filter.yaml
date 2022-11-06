@@ -1,0 +1,52 @@
+name: "Path Filter"
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 's3/**'
+      - 'simple/**'
+jobs:
+  changes:
+    name: Detect Changes in folder
+    runs-on: ubuntu-latest
+    outputs:
+      names: ${{ steps.filter.outputs.changes }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Detect Changes
+      uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          s3:
+            - 's3/**'
+          simple:
+            - 'simple/**'
+  deploy:
+    needs: changes
+    if: ${{ needs.changes.outputs.names != '[]' }}
+    name:  ${{matrix.runner}} - ${{ matrix.environment }}
+    runs-on: [ '${{ matrix.runner }}']
+    strategy:
+      max-parallel: 1
+      matrix:
+         name: ${{ fromJSON(needs.changes.outputs.names) }}
+         include:
+           - environment: test
+             runner: ubuntu-latest
+           - environment: prod
+             runner: ubuntu-18.04
+    env:
+         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         AWS_DEFAULT_REGION: us-east-2
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Checking the folder name
+        run: |
+         echo "Running for folder ${{ matrix.name }}"
