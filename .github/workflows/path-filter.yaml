@@ -26,7 +26,7 @@ jobs:
   deploy:
     needs: changes
     if: ${{ needs.changes.outputs.names != '[]' }}
-    name:  ${{matrix.runner}} - ${{ matrix.environment }}
+    name:  ${{matrix.name}} - ${{ matrix.environment }}
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
